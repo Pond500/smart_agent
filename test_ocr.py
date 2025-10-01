@@ -4,9 +4,9 @@ from openai import OpenAI
 from typhoon_ocr.ocr_utils import image_to_base64png, get_anchor_text_from_image
 
 # --- ตั้งค่า ---
-API_BASE_URL = "http://52.195.227.79:8082/typhoon-ocr-service/v1"
+API_BASE_URL = "http://3.113.24.61/typhoon-ocr-service/v1"
 API_KEY = "not-used"
-IMAGE_PATH = "D:\smart_agent\Screenshot 2025-09-18 101655.png"
+IMAGE_PATH = "D:\smart_agent\Screenshot 2025-09-18 110646.png"
 
 def final_ocr_test():
     print(f"กำลังทดสอบด้วยวิธีที่ถูกต้องตามสคริปต์ของคุณ...")

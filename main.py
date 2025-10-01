@@ -7,7 +7,7 @@ import config
 from pipeline.extractor import extract_text_from_file
 from pipeline.proofreader import proofread_text
 from pipeline.librarian import generate_metadata
-from pipeline.chunker import create_smart_chunks
+from pipeline.chunker import hybrid_chunker_agent
 # Import LLM
 try:
     from llama_index.llms.openai_like import OpenAILike
@@ -65,7 +65,7 @@ def run_pipeline():
                         print(f"ข้ามไฟล์ {filename} เนื่องจากสร้าง Metadata ไม่สำเร็จ")
                         continue
 
-                    chunks = create_smart_chunks(proofread_content, metadata, filename)
+                    chunks = hybrid_chunker_agent(proofread_content, metadata, filename)
                     all_processed_chunks.extend(chunks)
 
                 except Exception as e:
@@ -92,5 +92,4 @@ if __name__ == "__main__":
             print(f"ผลลัพธ์ Text ของแต่ละไฟล์ถูกบันทึกในโฟลเดอร์: {config.TXT_OUTPUT_FOLDER}")
         else:
             print("\nไม่พบไฟล์ที่รองรับให้ประมวลผล")
-
 

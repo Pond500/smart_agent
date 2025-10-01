@@ -7,13 +7,12 @@ import re
 
 # --- การตั้งค่า OCR Service ---
 API_BASE_URL = "http://3.113.24.61/typhoon-ocr-service/v1"
-API_KEY = "EMPTY"
+API_KEY = "not-used"
 
 client = OpenAI(
     api_key=API_KEY,
     base_url=API_BASE_URL,
-    timeout=-360.0,
-    max_retries=2,
+    timeout=360.0,
 )
 
 def ocr_image(image_object):
